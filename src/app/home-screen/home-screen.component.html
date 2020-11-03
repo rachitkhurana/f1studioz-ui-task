@@ -1,0 +1,16 @@
+<div class="container-fluid" id="root">
+  <div class="videoScreenContainer" id="videoScreenContainer" [ngClass]= "{'shrinked':billSectionActive}">
+    <app-video-screen (billScreenTrigger)="triggerBillScreen()"></app-video-screen>
+  </div>
+  <div class="billScreenContainer d-none" id="billScreenContainer" [ngClass]= "{'active':billSectionActive}">
+    <div>
+      <app-bill-screen (billScreenUnTrigger)="unTriggerBillScreen()"></app-bill-screen>
+    </div>
+  </div>
+</div>
+
+
+<!-- THIS WAS FOR BASIC TESTING OF BILL SCREEN TOGGLE -->
+<!-- <button (click)="billSectionActive=!billSectionActive">
+  toggle
+</button> -->

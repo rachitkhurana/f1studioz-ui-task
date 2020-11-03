@@ -1,0 +1,196 @@
+<!-- <button (click)="unTriggerBillScreen()">X</button> -->
+
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/logo-blacktext.svg" width="30" height="30" alt="">
+    </a>
+    <span class="navbar-text">
+      <button class="btn" (click)="unTriggerBillScreen()">
+        <img src="../../assets/provided_assets/close-icon-blue.svg" alt="">
+      </button>
+    </span>
+  </nav>
+</header>
+
+<section>
+  <div class="stepsWrapper" id="stepsWrapper">
+
+    <div class="stepper" *ngIf="!formCompleted">
+      <mat-horizontal-stepper [linear]="true" #stepper labelPosition="bottom">
+        <mat-step [stepControl]="productForm">
+          <form [formGroup]="productForm">
+            <div class="form-group">
+              <ng-template matStepLabel>
+                <div class="stepperStepImg">
+                  <img src="../../assets/provided_assets/product.svg" alt="">
+                </div>
+                <div>Product Details</div>
+              </ng-template>
+
+              <div class="inputWrapper">
+                <mat-form-field class="example-form-field">
+                  <mat-label>Model / Product ID #</mat-label>
+                  <input matInput type="number" value="65565487">
+                </mat-form-field>
+              </div>
+              <div class="inputWrapper">
+                <mat-form-field class="example-form-field">
+                  <mat-label>Product Type</mat-label>
+                  <input matInput type="text" value="Earing (Gold) Ring (Gold)">
+                </mat-form-field>
+              </div>
+              <div class="inputWrapper">
+                <mat-form-field class="example-form-field">
+                  <mat-label>Purity</mat-label>
+                  <input matInput type="text" value="14 Kt">
+                </mat-form-field>
+              </div>
+              <div class="inputWrapper">
+                <mat-form-field class="example-form-field">
+                  <mat-label>Weight</mat-label>
+                  <input matInput type="text" value="3.44 g">
+                </mat-form-field>
+              </div>
+              <!-- <button>dsk</button> -->
+              <button type="button" class="stepperNextBtn" matStepperNext>
+                Submit & Continue
+              </button>
+            </div>
+          </form>
+
+
+        </mat-step>
+
+
+        <mat-step [stepControl]="customerForm">
+          <form [formGroup]="customerForm">
+            <ng-template matStepLabel>
+              <div class="stepperStepImg">
+                <img src="../../assets/provided_assets/contact-information.svg" alt="">
+              </div>
+              <div>Customer Details</div>
+            </ng-template>
+
+            <div class="inputWrapper">
+              <mat-form-field class="example-form-field">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" value="Jon Snow">
+              </mat-form-field>
+            </div>
+            <div class="inputWrapper">
+              <mat-form-field class="example-form-field">
+                <mat-label>Email</mat-label>
+                <input #emailInput matInput type="email" value="jon@snow.com" required (input)="email=emailInput.value" >
+              </mat-form-field>
+            </div>
+            <div class="inputWrapper">
+              <mat-form-field class="example-form-field">
+                <mat-label>Phone Number</mat-label>
+                <input matInput type="text" value="9582196627">
+              </mat-form-field>
+            </div>
+            <div class="inputWrapper">
+              <mat-form-field class="example-form-field">
+                <mat-label>PAN or Aadhar</mat-label>
+                <input matInput type="text" value="AUFPK0000L">
+              </mat-form-field>
+            </div>
+
+            <h4>Address Details</h4>
+
+            <div class="inputWrapper">
+              <mat-form-field class="example-form-field">
+                <mat-label>Address</mat-label>
+                <input matInput type="text" value="Flat 90">
+              </mat-form-field>
+            </div>
+            <div class="inputWrapper">
+              <mat-form-field class="example-form-field">
+                <mat-label>City</mat-label>
+                <input matInput type="text" value="New Delhi">
+              </mat-form-field>
+            </div>
+            <div class="inputWrapper">
+              <mat-form-field class="example-form-field">
+                <mat-label>Pin Code</mat-label>
+                <input matInput type="text" value="110041">
+              </mat-form-field>
+            </div>
+
+
+            <button type="button" matStepperNext class="stepperNextBtn">
+              Submit & Continue
+            </button>
+            </form>
+        </mat-step>
+
+
+        <mat-step [stepControl]="paymentForm">
+          <form [formGroup]="paymentForm">
+            <ng-template matStepLabel>
+              <div class="stepperStepImg">
+                <img src="../../assets/provided_assets/credit-card.svg" alt="">
+              </div>
+              <div>Payment Information</div>
+            </ng-template>
+
+
+
+            <mat-radio-group aria-label="Select an option" #radioGroup="matRadioGroup">
+              <div class="inputWrapperExtra">
+                <mat-radio-button [value]="1">Cash on Delivery</mat-radio-button>
+              </div>
+              <div class="inputWrapperExtra">
+                <mat-radio-button [value]="2">Online Banking</mat-radio-button>
+              </div>
+              <div class="inputWrapperExtra">
+                <mat-radio-button [value]="3">Pickup from Store</mat-radio-button>
+              </div>
+            </mat-radio-group>
+
+            <div class="inputWrapper" *ngIf="radioGroup.value=='3'">
+              <mat-form-field appearance="fill">
+                <mat-label>Please Select Store</mat-label>
+                <mat-select [formControl]="storeList">
+                  <mat-option *ngFor="let elem of storeList" [value]="elem">{{elem}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+
+
+            <button type="button" (click)="formCompleted=true" class="stepperNextBtn">
+              Submit & Continue
+            </button>
+            </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+
+        <div class="px-4">
+          <!-- the order summary thing -->
+          <app-order-summary></app-order-summary>
+        </div>
+      </div>
+
+
+      <div class="formCompleteView text-center" *ngIf="formCompleted">
+        <img src="../../assets/provided_assets/reveived-icon.svg" alt="">
+        <div class="text-center">
+          Thanks for the confirmation! We have sent payment link to <strong>{{email}}</strong>
+        </div>
+        <div class="text-center resendBtn">
+          <button type="button" class="btn">
+            Resend Invoice
+          </button>
+
+          <div class="text-center">
+            <button type="button" onClick="window.location.reload();" class="btn btn-danger text-light">
+              Reset Everything
+            </button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</section>

@@ -1,0 +1,117 @@
+<div class="container-fluid root" id="root">
+  <div class="container-fluid videoContainer" id="videoContainer">
+
+
+    <div class="videoItemsWrapper" id="videoItemsWrapper" [ngClass]="{'collapsed':!videoItemsExpanded}">
+
+      <div class="itemWrapper">
+        <div class="expandBtn">
+          <button (click)="videoItemsToggle()">
+            &lt;
+          </button>
+        </div>
+        <div class="items">
+          <div class="item active">
+            <img src="./../../assets/video.jpg" alt="">
+            <div class="text">
+              Aishwarya
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="./../../assets/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="">
+            <div class="text">
+              Deepika
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="./../../assets/video.jpg" alt="">
+            <div class="text">
+              Jennifer
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="topBar">
+      <header>
+        <div class="row">
+          <div class="col col-8">
+            <h3>
+              Call with {{callerName}} ({{productName}})
+            </h3>
+          </div>
+          <div class="col col-4 circleProgressbarContainer">
+            <!-- circular prog par -->
+            <circle-progress
+              [percent]="31"
+              [radius]="25"
+              [outerStrokeWidth]="2"
+              [innerStrokeWidth]="2"
+              [outerStrokeColor]="'#40a611'"
+              [innerStrokeColor]="'#3c3c32'"
+              [space]="-2"
+              [animation]="true"
+              [animationDuration]=""
+              [showSubtitle]="false"
+              [units]="'m'"
+              [titleFontSize]="16"
+              [titleColor]="'#ffffff'"
+              [unitsColor]="'#ffffff'"
+            ></circle-progress>
+          </div>
+        </div>
+      </header>
+    </div>
+
+
+    <!-- start billing button to show on mobile -->
+    <div class="mobileExtendedBtnBar" id="mobileExtendedBtnBar">
+      <div class="row d-flex d-lg-none">
+        <div class="col col-12 justify-content-center text-center">
+          <button class="btn btn-light" style="border-radius: 12px;" (click)="triggerBillScreen()">Start Billing</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- bottom buttons bar -->
+    <div class="bottomButtons" id="bottomButtons">
+      <div class="row">
+        <div class="col col-3 col-lg-4 buttonWrapper">
+          <img src="./../../assets/logo.svg" alt="f1studioz" srcset="">
+        </div>
+        <div class="col col-6 col-lg-4 buttonWrapper">
+          <button (click)="muteClicked()">
+            <img [src]="muteImg" alt="">
+          </button>
+          <button (click)="videoOffClicked()">
+            <img [src]="videoImg" alt="">
+          </button>
+          <button>
+            <img src="./../../assets/provided_assets/end-call.svg" alt="">
+          </button>
+        </div>
+        <div class="col col-3 col-lg-4 buttonWrapper">
+          <div class="d-none d-lg-block">
+            <button class="btn btn-light" (click)="triggerBillScreen()">Start Billing</button>
+          </div>
+          <div>
+            <button class="btn text-light" (click)="openFullscreen()" *ngIf="!isFullScreen">
+              <img style="width: 20px; margin-right: 2px" src="./../../assets/noun_Fullscreen_3396869.svg" alt="">
+              <span style="font-size: 0.8em;" class="d-none d-lg-block">Enter Full Screen</span>
+            </button>
+            <button class="btn text-light" (click)="closeFullscreen()" *ngIf="isFullScreen">
+              <img style="width: 20px; margin-right: 2px" src="./../../assets/noun_Fullscreen_3396869.svg" alt="">
+              <span style="font-size: 0.8em;" class="d-none d-lg-block">Exit Full Screen</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

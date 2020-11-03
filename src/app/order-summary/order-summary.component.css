@@ -1,0 +1,25 @@
+.orderSummaryContainer {
+  border-radius: 8px;
+  /* box-shadow: 0 0 8px rgba(0,0,0,0.2); */
+  position: relative;
+  /* background-color: #ffffff; */
+  background: url('../../assets/tktCutoutArtboard.svg');
+  background-repeat: no-repeat;
+  background-size: 200%;
+  padding-top: 10px;
+  padding-bottom: 60px;
+  background-position: bottom;
+}
+
+.orderSummaryContainer .tktBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  bottom: 0%;
+}
+
+.totalDiv {
+  font-weight: 600;
+  font-size: 1.2em;
+}

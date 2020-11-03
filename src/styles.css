@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button:focus, * button:focus {
+  outline: none !important;
+}
+
+.mat-horizontal-stepper-header-container {
+  background-color: #E5EBF2;
+}
+
+.mat-horizontal-stepper-header .mat-step-icon {
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #333333;
+}
+
+.mat-horizontal-stepper-header .mat-step-label .stepperStepImg {
+  height: 60px;
+  line-height: 60px;
+}
+
+.mat-horizontal-stepper-header .mat-step-label img {
+  width: 40px;
+}
+
+.mat-horizontal-stepper-header .mat-step-label {
+  font-size: 0.75em;
+}
+
+.mat-horizontal-stepper-header .mat-step-label div {
+  white-space: pre-wrap;
+}
+
+.mat-horizontal-content-container {
+  /* for bg color in bill container */
+  background-color: #f6f6f6;
+  padding-top: 24px !important;
+}
+
+.mat-radio-label {
+  width: 100%;
+}
